@@ -1,5 +1,7 @@
 #Pyblur
 ##Python image blurring routines.
+#This is tested on python2.7
+#You can run blurred_image_generator.py as a quick start
 Pyblur is a collection of simple image blurring routines.<br>
 It supports Gaussian, Disk, Box, and Linear Motion Blur Kernels as well as the Point Spread Functions
 used in [Convolutional Neural Networks for Direct Text Deblurring](http://www.fit.vutbr.cz/~ihradis/CNN-Deblur/).<br>
