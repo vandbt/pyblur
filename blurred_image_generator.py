@@ -49,21 +49,21 @@ if not os.path.isdir(blurreddir):
 for fimg, count in tqdm(product(os.listdir(imagedir), range(blurred_num))):
     img = Image.open("{}/{}".format(imagedir, fimg))
 
-    blurred = GaussianBlur_random(img)
-    save_img(blurred, "{}/{}".format(blurreddir,
-                                     append_tag(fimg, "GaussianBlur_{}".format(count))))
+    # blurred = GaussianBlur_random(img)
+    # save_img(blurred, "{}/{}".format(blurreddir,
+    #                                  append_tag(fimg, "GaussianBlur_{}".format(count))))
 
     # blurred = DefocusBlur_random(img)
     # save_img(blurred, "{}/{}".format(blurreddir,
-    #          append_tag(fimg, "DefocusBlur_{}".format(count))))
+    #                                  append_tag(fimg, "DefocusBlur_{}".format(count))))
 
     # blurred = BoxBlur_random(img)
     # save_img(blurred, "{}/{}".format(blurreddir,
     #                                  append_tag(fimg, "BoxBlur_{}".format(count))))
 
-    # blurred = LinearMotionBlur_random(img)
-    # save_img(blurred, "{}/{}".format(blurreddir,
-    #                                  append_tag(fimg, "LinearMotionBlur_{}".format(count))))
+    blurred = LinearMotionBlur_random(img)
+    save_img(blurred, "{}/{}".format(blurreddir,
+                                     append_tag(fimg, "LinearMotionBlur_{}".format(count))))
 
     # blurred = PsfBlur_random(img)
     # save_img(blurred, "{}/{}".format(blurreddir,
