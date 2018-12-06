@@ -8,7 +8,7 @@ import os.path
 pickledPsfFilename = os.path.join(os.path.dirname(__file__), "psf.pkl")
 
 with open(pickledPsfFilename, 'rb') as pklfile:
-    psfDictionary = pickle.load(pklfile)
+    psfDictionary = pickle.load(pklfile, encoding="latin1")
 
 
 def PsfBlur(img, psfid):
