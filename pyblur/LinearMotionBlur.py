@@ -7,7 +7,8 @@ from skimage.draw import line
 
 from .LineDictionary import LineDictionary
 
-lineLengths = [3, 5, 7, 9]
+lineLengths = [5]
+# lineLengths = [3, 5, 7, 9]
 lineTypes = ["full", "right", "left"]
 
 lineDict = LineDictionary()

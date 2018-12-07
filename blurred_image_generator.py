@@ -21,6 +21,12 @@ def append_tag(name, tag):
     return '.'.join([tokens[0]+'_'+tag, tokens[1]])
 
 
+def append_tag_clean(name, tag):
+    tokens = name.rsplit('.', 1)
+    # tokens[0]: xxx, tokens[1]: jpg/jpeg
+    return '.'.join([tokens[0]+tag, tokens[1]])
+
+
 def save_img(img, fname):
     with open(fname, 'wb') as f:
         img.save(f)
@@ -57,13 +63,17 @@ for fimg, count in tqdm(product(os.listdir(imagedir), range(blurred_num))):
     # save_img(blurred, "{}/{}".format(blurreddir,
     #                                  append_tag(fimg, "DefocusBlur_{}".format(count))))
 
-    blurred = BoxBlur_random(img)
-    save_img(blurred, "{}/{}".format(blurreddir,
-                                     append_tag(fimg, "BoxBlur_{}".format(count))))
+    # blurred = BoxBlur_random(img)
+    # save_img(blurred, "{}/{}".format(blurreddir,
+    #                                  append_tag(fimg, "BoxBlur_{}".format(count))))
 
     # blurred = LinearMotionBlur_random(img)
     # save_img(blurred, "{}/{}".format(blurreddir,
     #                                  append_tag(fimg, "LinearMotionBlur_{}".format(count))))
+
+    blurred = LinearMotionBlur_random(img)
+    save_img(blurred, "{}/{}".format(blurreddir,
+                                     append_tag_clean(fimg, "")))
 
     # blurred = PsfBlur_random(img)
     # save_img(blurred, "{}/{}".format(blurreddir,
