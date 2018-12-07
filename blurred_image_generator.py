@@ -10,6 +10,7 @@ from PIL import Image
 from pyblur import GaussianBlur_random, DefocusBlur_random
 from pyblur import BoxBlur_random, LinearMotionBlur_random
 from pyblur import PsfBlur_random
+from pyblur import Noisy_random
 from tqdm import tqdm
 from itertools import product
 import argparse
@@ -71,7 +72,11 @@ for fimg, count in tqdm(product(os.listdir(imagedir), range(blurred_num))):
     # save_img(blurred, "{}/{}".format(blurreddir,
     #                                  append_tag(fimg, "LinearMotionBlur_{}".format(count))))
 
-    blurred = LinearMotionBlur_random(img)
+    # blurred = LinearMotionBlur_random(img)
+    # save_img(blurred, "{}/{}".format(blurreddir,
+    #                                  append_tag_clean(fimg, "")))
+
+    blurred = Noisy_random(img)
     save_img(blurred, "{}/{}".format(blurreddir,
                                      append_tag_clean(fimg, "")))
 
